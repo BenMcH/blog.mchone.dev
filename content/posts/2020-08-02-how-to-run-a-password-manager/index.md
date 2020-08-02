@@ -38,7 +38,7 @@ Finally, we need to enter our DEFAULT_EMAIL, which, again is used by Let's Encry
 
 ### Step 3. Start it all up
 
-Now that we've configured our DNS and our bitwarden_rs instance, it's time to start up the three required containers by simply running `docker-compose up -d`.
+Now that we've configured our DNS and our bitwarden_rs instance, it's time to start up the three required containers by simply running `docker-compose up -d`. This starts up our necessary containers for HTTPS setup through Let's Encrypt, an `nginx` container to terminate the SSL connection and starts up our instance of `bitwarden_rs`, storing the encrypted password database inside of `./bw_data`.
 
 ### Step 4. Verification and Setup
 
