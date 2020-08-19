@@ -13,13 +13,99 @@ Now you may be asking yourself: "What do I gain by setting up my project like th
 ```json
 {
     "orderId": 1234,
-    "orderPickedAt": "2020-08-01T06:37:23.000Z",
-    "orderPackedAt": "2020-08-01T08:27:41.000Z",
-    "orderShippedAt": "2020-08-01T13:55:47.000Z",
+    "orderedAt": "2020-08-09T04:00:00.000Z",
+    "orderPickedAt": "2020-08-09T06:37:23.000Z",
+    "orderPackedAt": "2020-08-09T08:27:41.000Z",
+    "orderShippedAt": "2020-08-09T13:55:47.000Z",
     "orderDeliveredAt": null,
     "trackingNumber": "T1234567890",
-    "estimatedDeliveryDate": "2020-08-09"
+    "estimatedDeliveryDate": "2020-08-21"
 }
 ```
 
-After seeing the data, you may think that it would be easy to display this information to the user. With such a small number of variables, we can check what the current status is based on the presence of `orderPickedAt`, `orderPackedAt`, `orderShippedAt`, and `orderDeliveredAt`
+After seeing the data, you may think that it would be easy to display this information to the user. With such a small number of variables, we can check what the current status is based on the presence of `orderedAt`, `orderPickedAt`, `orderPackedAt`, `orderShippedAt`, and `orderDeliveredAt`.
+
+Let's start here with an example to show how this may naively be displayed to the user.
+
+```Javascript
+function getOrderMessage(order) {
+    if (order.orderPickedAt) {
+        return "Your order has been picked and is on its way to be packed!";
+    }
+    if (order.orderPackedAt) {
+        return "Your order is waiting to be shipped!";
+    }
+    if (order.orderShippedAt) {
+        return "Your order is on the way!";
+    }
+    if (order.orderDeliveredAt) {
+        return "Your order was delivered!";
+    }
+
+    return "We're working on your order";
+}
+
+```
+
+This example code is easy to read and appears to work correctly, but there is still a problem. What if a data point doesn't get updated? Let's say that the order picker forgets to tell our ficticious system that they picked an item from the warehouse and sent it to shipping. After the order is shipped to the customer, our data will look like this:
+
+```json
+{
+    "orderId": 1234,
+    "orderedAt": "2020-08-09T04:00:00.000Z",
+    "orderPickedAt": null,
+    "orderPackedAt": "2020-08-09T08:27:41.000Z",
+    "orderShippedAt": "2020-08-09T13:55:47.000Z",
+    "orderDeliveredAt": null,
+    "trackingNumber": "T1234567890",
+    "estimatedDeliveryDate": "2020-08-21"
+}
+```
+
+Running the above `getOrderMessage` is returning `Your order has been picked and is on its way to be packed!` and the user doesn't know that it was shipped. What gives? Our disperate state fell over and we were unable to correctly convey this information.  
+  
+Now, imagine another scenario where instead of entering a date, our employees change an order status directly. Our new data model will only require one more attribute, `status`.
+
+```json
+{
+    "orderId": 1234,
+    "orderedAt": "2020-08-09T04:00:00.000Z",
+    "orderPickedAt": null,
+    "orderPackedAt": "2020-08-09T08:27:41.000Z",
+    "orderShippedAt": "2020-08-09T13:55:47.000Z",
+    "orderDeliveredAt": null,
+    "trackingNumber": "T1234567890",
+    "estimatedDeliveryDate": "2020-08-21",
+    "orderStatus": "SHIPPED"
+}
+```
+This status field can take on one of a few different statuses. Here is an example definition of the possible statuses:
+
+```json
+    const statuses = {
+        ORDERED: "ORDERED",
+        PICKED: "PICKED",
+        PACKED: "PACKED",
+        SHIPPED: "SHIPPED",
+        DELIVERED: "DELIVERED"
+    }
+```
+
+Additionally, our `getOrderMessage` function can now be redefined to be a bit easier to understand:
+
+```javascript
+function getOrderMessage(order) {
+    switch (order.status) {
+        case statuses.PICKED:
+            return "Your order has been picked and is on its way to be packed!";
+        case statuses.PACKED:
+            return "Your order is waiting to be shipped!";
+        case statuses.SHIPPED:
+            return "Your order is on the way!";
+        case statuses.DELIVERED:
+            return "Your order was delivered!";
+        default:
+            return "We're working on your order";
+    }
+}
+```
