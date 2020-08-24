@@ -1,5 +1,5 @@
 ---
-title: State machines will simplify your code
+title: States will simplify your code
 author: Ben McHone
 date: '2020-08-10'
 hero: images/wikimedia-turnstile-state-machine.png
@@ -8,7 +8,9 @@ State machines help us manage our application state and, ultimately, reduce the 
 
 Shown above is a finite state machine representing a turnstile, similar to those found in many places, such as a subway station. When the user enters the program (Approaches the turnstile), the gate is locked and no amount of pushing on the turnstile will unlock it. Only the action of inserting a coin will unlock the turnstile. Once we have inserted a coin and find ourselves in the unlocked state, no amount of coins entered will change the state back to locked. Only the action of pushing the turnstile and entering will change the state back to locked, ready for the next person.
 
-Now you may be asking yourself: "What do I gain by setting up my project like this? I have properties that let me derive the current state! I don't need a state machine", but the benefits of a state machine are still plentiful. Let's start with an example, examining how an e-commerce merchant, such as Amazon, could use state machines to manage order status. In our example, we will have an order consisting of the following data:
+This blog post will be about the benefits of states instead of deriving the current state based upon other factors. State machines themselves will be saved for a future blog post. 
+
+Now you may be asking yourself: "What do I gain by setting up my project with states? I have properties that let me derive the current state! I don't need a status", but the benefits of a state machine are still plentiful. Let's start with an example, examining how an e-commerce merchant, such as Amazon, could use state machines to manage order status. In our example, we will have an order consisting of the following data:
 
 ```json
 {
@@ -109,3 +111,6 @@ function getOrderMessage(order) {
     }
 }
 ```
+
+Now, with the introduction of a status field, our function only has to look at that one piece of data to properly show the user where their order is at in the process, the status. An `orderPackedAt` data point missing will not leave the order in an incorrect "packing" state for all of eternity, but instead the shipping or delivery status update will eventually come along and correct the current state of the order. 
+This is the idea of eventual consistency between our program and the real world. We've now built in fail-safes and mechanisms for correcting missed work without introducing any extra work in cases where that data is missed.
