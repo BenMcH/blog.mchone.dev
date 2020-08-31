@@ -1,7 +1,7 @@
 ---
 title: States will simplify your code
 author: Ben McHone
-date: '2020-08-10'
+date: '2020-08-31'
 hero: images/wikimedia-turnstile-state-machine.png
 ---
 State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
@@ -10,7 +10,7 @@ Shown above is a finite state machine representing a turnstile, similar to those
 
 This blog post will be about the benefits of states instead of deriving the current state based upon other factors. State machines themselves will be saved for a future blog post. 
 
-Now you may be asking yourself: "What do I gain by setting up my project with states? I have properties that let me derive the current state! I don't need a status", but the benefits of a state machine are still plentiful. Let's start with an example, examining how an e-commerce merchant, such as Amazon, could use state machines to manage order status. In our example, we will have an order consisting of the following data:
+Now you may be asking yourself: "What do I gain by setting up my project with states? I have properties that let me derive the current state! I don't need a status", but the benefits of an explicit status or state field are still plentiful. Let's start with an example, examining how an e-commerce merchant, such as Amazon, could use state machines to manage order status. In our example, we will have an order consisting of the following data:
 
 ```json
 {
@@ -84,13 +84,13 @@ Now, imagine another scenario where instead of entering a date, our employees ch
 This status field can take on one of a few different statuses. Here is an example definition of the possible statuses:
 
 ```json
-    const statuses = {
-        ORDERED: "ORDERED",
-        PICKED: "PICKED",
-        PACKED: "PACKED",
-        SHIPPED: "SHIPPED",
-        DELIVERED: "DELIVERED"
-    }
+const statuses = {
+    ORDERED: "ORDERED",
+    PICKED: "PICKED",
+    PACKED: "PACKED",
+    SHIPPED: "SHIPPED",
+    DELIVERED: "DELIVERED"
+}
 ```
 
 Additionally, our `getOrderMessage` function can now be redefined to be a bit easier to understand:
@@ -112,5 +112,7 @@ function getOrderMessage(order) {
 }
 ```
 
-Now, with the introduction of a status field, our function only has to look at that one piece of data to properly show the user where their order is at in the process, the status. An `orderPackedAt` data point missing will not leave the order in an incorrect "packing" state for all of eternity, but instead the shipping or delivery status update will eventually come along and correct the current state of the order. 
-This is the idea of eventual consistency between our program and the real world. We've now built in fail-safes and mechanisms for correcting missed work without introducing any extra work in cases where that data is missed.
+Now, with the introduction of a status field, our function only has to look at one piece of data to properly show the user where their order is at in the process, the status. An `orderPackedAt` data point missing will not leave the order in an incorrect "packing" state for all of eternity, but instead the shipping or delivery status update will eventually come along and correct the current state of the order. 
+This is the idea of eventual consistency between our program and the real world. We've now built in fail-safes for correcting missed work without introducing any extra work in cases where that data is missed.
+
+My hope is that the benefit of a status and the simplicity that it brings were made clear through this simple example.
