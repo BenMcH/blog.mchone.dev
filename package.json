@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@narative/gatsby-theme-novela": "^0.18.0",
+    "browser-monads": "^1.0.0",
     "concurrently": "^5.3.0",
     "gatsby": "^2.13.41",
     "gatsby-plugin-manifest": "^2.2.4",
