@@ -1,10 +1,16 @@
 ---
-title: Running Your Own Password Manager
-author: Ben McHone
+meta:
+  title: Running Your Own Password Manager
+author: ben-mchone
 date: '2020-08-02'
-excerpt: ''
-hero: images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
+hero: /images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
+excerpt: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
 ---
+
+# Running Your Own Password Manager
+![Hero Image](/images/chris-panas-0Yiy0XajJHQ-unsplash.jpg)
+
+
 By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one, like Lastpass, Bitwarden. 1password, Dashlane, Keypass, the list could go on. My personal preference at this point in time is [Bitwarden](https://bitwarden.com/).
 
 A few years ago, I started work at a company that shared all passwords via Lastpass so that they could easily be updated, shared, and revoked as needed. It was really a great system, one that I came to love for both the ease of use as well as the added security that it provides. All of a sudden, it was no more difficult to have a 100 character password as it was to have a 15 character password. This idea excited me and I jumped all in, changing every one of my passwords to a secure, randomly generated password that would not easily be cracked through password lists, brute force, or any other common method today. Things stayed like this for quite some time and I would even help friends, family, colleagues, and anyone else that would listen sign up for a password manager, knowing that it can help dramatically improve day to day security. 
@@ -24,7 +30,7 @@ Hosting Bitwarden using the docs from their [Github Repo](https://github.com/bit
 
 The first step will be unique to your DNS provider, but the common task needed is a DNS "A" record created with the desired subdomain, with the IP address pointing at the server that will be running Bitwarden_rs. Note: In this example, using Cloudflare, notice the proxy status is set to DNS only. We will be getting our own SSL Certificate later on using Let's Encrypt, so we do not want to use Cloudflare's SSL encryption.
 
-![Example DNS configuration within Cloudflare](images/cloudflare_subdomain_example.png)
+![Example DNS configuration within Cloudflare](/images/cloudflare_subdomain_example.png)
 
 ### Step 2. Cloning and configuring Bitwarden_rs
 
@@ -44,4 +50,4 @@ Now that we've configured our DNS and our bitwarden_rs instance, it's time to st
 
 Everything should be up and running without issue at this point, and we can verify this by navigating to our new subdomain inside of our web browser. If everything worked as expected, you should be greated with a bitwarden login screen, allowing you to register your account and begin saving your passwords! Once setting up an account, you can setup the official Bitwarden browser extension and mobile apps up by setting your Server URL for a self-hosted environment to the same subdomain that we set up in step 1. 
 
-![Bitwarden Login Page](images/bitwarden_login.png)
+![Bitwarden Login Page](/images/bitwarden_login.png)
