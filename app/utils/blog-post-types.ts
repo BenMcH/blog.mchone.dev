@@ -5,6 +5,7 @@ export type BlogPostAttributes = {
 	author: string
 	date: string
 	hero: string
+	excerpt: string
 }
 
 export type FrontMatterBlogPost = {

@@ -1,0 +1,19 @@
+body {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+img {
+	max-width: 100%;
+}
+
+img.hero {
+	max-width: 300px;
+}
+
+header {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	font-size: 24px;
+}

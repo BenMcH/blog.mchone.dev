@@ -1,7 +1,6 @@
 import fm from 'front-matter';
-import type { FrontMatterResult } from "front-matter";
-import { walk, readFile } from "~/utils/fs.server";
-import type { BlogPostAttributes, FrontMatterBlogPost } from "~/utils/blog-post-types";
+import { walk, readFile, getAuthor } from "~/utils/fs.server";
+import type { BlogPostAttributes } from "~/utils/blog-post-types";
 
 import { Link, LoaderFunction, useLoaderData } from 'remix';
 
@@ -14,12 +13,13 @@ export let loader: LoaderFunction = async function() {
     if (file.endsWith('.md')) {
       let frontmatter = fm<BlogPostAttributes>(await readFile(file));
 
-      console.log({frontmatter})
+      const author = await getAuthor(frontmatter.attributes.author);
 
       files.push({
         attributes: frontmatter.attributes,
         body: frontmatter.attributes.excerpt.substring(0, 100) + '...',
         url: file.substring(walkPath.length + 1, file.length - 3),
+        authorName: author.name
       });
     }
   }
@@ -35,6 +35,7 @@ type BlogPost = {
   attributes: BlogPostAttributes
   body: string
   url: string
+  authorName: string
 }
 
 type LoaderType = {
@@ -85,7 +86,7 @@ export default function Index() {
             </blockquote>
 
             <p style={{ fontSize: "0.8rem" }}>
-              {new Date(post.attributes.date).toLocaleDateString()} - {post.attributes.author}
+              {new Date(post.attributes.date).toLocaleDateString()} - {post.authorName}
             </p>
           </li>
         ))}

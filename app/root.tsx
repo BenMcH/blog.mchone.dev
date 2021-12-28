@@ -1,4 +1,5 @@
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -20,10 +21,15 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        <style dangerouslySetInnerHTML={{__html: 'body { max-width: 1000px; margin: 0 auto; } img { max-width: 100%; } img.hero { max-width: 300px; }'}}/>
+        <link href={'/global.css'} rel="stylesheet" />
       </head>
       <body>
-        <Outlet />
+        <header>
+          <Link to="/">Ben McHone's Blog</Link>
+        </header>
+        <main>
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}

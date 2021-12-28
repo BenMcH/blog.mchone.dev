@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Link, Outlet } from "remix";
+import { Outlet } from "remix";
 
 export default function BlogTemplate() {
     const [link, setLink] = useState('');
@@ -11,16 +11,14 @@ export default function BlogTemplate() {
     }, [doc]);
 
 	return (
-		<div>
-			<Link to="/">Back Home</Link>
+		<article>
 			<Outlet />
-
 			<p>
 				Like this blog post?
 				<a href={`https://twitter.com/intent/tweet?text=Check out this blog post by @mchonedev that I just read! ${link}`}>
 						Share it on twitter!
 				</a>
 			</p>
-		</div>
+		</article>
 	)
 }

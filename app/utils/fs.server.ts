@@ -18,3 +18,19 @@ export async function walk(path: string, callback: (path: string, stat: any) => 
 export async function readFile(path: string): Promise<string> {
 	return await fs.readFile(path, 'utf8')
 };
+
+type Author = {
+  name: string
+  bio: string
+  avatar: string
+  social: {
+    twitter: string
+    github: string
+  }	
+}
+
+export async function getAuthor(username: string): Promise<Author> {
+	const file = await readFile(`./app/authors/${username}.json`);
+
+	return JSON.parse(file);
+}
