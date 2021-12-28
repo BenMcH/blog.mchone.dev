@@ -39,13 +39,24 @@ ul.blog-list {
 } 
 ul.blog-list li {
 	display: flex;
-	max-width: 300px;
+	max-width: 35%;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 1rem 0;
+	padding: 1rem;
+
+	border: 1px solid #ccc;
+	border-radius: 12px;
 } 
+
+@media screen and (max-width: 800px) {
+	ul.blog-list li {
+		max-width: 100%;
+	}
+}
+	
+}
 
 ul.blog-list li a {
 	font-size: 1.5rem;

@@ -1,6 +1,8 @@
 ---
 meta:
   title: States will simplify your code
+headers:
+  Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
 date: '2020-08-31'
 hero: /images/wikimedia-turnstile-state-machine.png

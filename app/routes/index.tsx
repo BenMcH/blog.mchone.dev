@@ -30,9 +30,14 @@ export let loader: LoaderFunction = async function() {
 
   await walk(walkPath, addFile);
 
-  return {
+  return new Response(JSON.stringify({
     blogPosts: files.sort((a, b) => b.url.localeCompare(a.url))
-  }
+  }), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, max-age=180, s-maxage=3600'
+    }
+  });
 }
 
 type BlogPost = {
@@ -55,14 +60,14 @@ export default function Index() {
       <ul className="blog-list">
         {data.blogPosts.slice(0, 10).map(post => (
           <li key={post.url}>
-            <Link to={post.url}>
+            <Link prefetch="intent" to={post.url}>
               <img
                 alt={post.attributes.meta.title}
                 src={post.attributes.hero}
                 className="hero"
               />
             </Link>
-            <Link to={post.url}>
+            <Link prefetch="intent"  to={post.url}>
               {post.attributes.meta.title}
             </Link>
 

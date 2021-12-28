@@ -1,6 +1,8 @@
 ---
 meta:
   title: Running Your Own Password Manager
+headers:
+  Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
 date: '2020-08-02'
 hero: /images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
