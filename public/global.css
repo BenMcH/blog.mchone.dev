@@ -56,20 +56,19 @@ ul.blog-list li {
 	}
 }
 	
-}
-
 ul.blog-list li a {
 	font-size: 1.5rem;
-}
-
-footer p span.copyright {
-	flex: 1;
 }
 
 footer p {
 	display: flex;
 	flex-direction: row;
 	gap: 0.5rem;
+	padding: 0 8px;
+}
+
+footer p span.copyright {
+	flex: 1;
 }
 
 section.author > div.details {
@@ -80,4 +79,8 @@ section.author > div.details {
 
 section.author img {
 	max-width: 100px;
+}
+
+pre {
+	overflow-x: auto;
 }
