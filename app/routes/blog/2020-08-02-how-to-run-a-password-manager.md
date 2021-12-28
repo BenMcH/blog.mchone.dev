@@ -4,14 +4,16 @@ meta:
 headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
+authorName: Ben McHone
 date: '2020-08-02'
 hero: /images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
 excerpt: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
 ---
 
-# Running Your Own Password Manager
-![Hero Image](/images/chris-panas-0Yiy0XajJHQ-unsplash.jpg)
+# {attributes.meta.title}
+{attributes.authorName} - {new Date(attributes.date).toLocaleDateString()}
 
+<img alt="Hero Image" src={attributes.hero} />
 
 By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one, like Lastpass, Bitwarden. 1password, Dashlane, Keypass, the list could go on. My personal preference at this point in time is [Bitwarden](https://bitwarden.com/).
 

@@ -3,6 +3,7 @@ export type BlogPostAttributes = {
 		title: string
 	}
 	author: string
+	authorName: string
 	date: string
 	hero: string
 	excerpt: string

@@ -56,7 +56,13 @@ export default function Index() {
 
   return (
     <>
-      <h1>Welcome to My Blog</h1>
+      <h1>Ben McHone</h1>
+      <p>
+        From Ruby to Javascript, REST to GraphQL, Kubernetes to lambda functions,
+        I love all things tech. This blog is my collection of thoughts surrounding tech,
+        life, and other hobbies. This blog is built upon <a href="https://remix.run">Remix</a> and
+        other web fundamentals.
+      </p>
       <ul className="blog-list">
         {data.blogPosts.slice(0, 10).map(post => (
           <li key={post.url}>

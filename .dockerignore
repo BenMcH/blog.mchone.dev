@@ -1,0 +1,9 @@
+*
+
+!app
+!public
+!package.json
+!package-lock.json
+!remix.config.js
+!remix.env.d.ts
+!tsconfig.json
