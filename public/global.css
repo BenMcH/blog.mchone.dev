@@ -37,3 +37,13 @@ ul.blog-list li {
 ul.blog-list li a {
 	font-size: 1.5rem;
 }
+
+footer p span.copyright {
+	flex: 1;
+}
+
+footer p {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+}

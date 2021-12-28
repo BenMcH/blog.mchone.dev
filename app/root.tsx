@@ -30,6 +30,13 @@ export default function App() {
         <main>
           <Outlet />
         </main>
+        <footer>
+          <p>
+            <span className="copyright">&copy; 2021 Ben McHone</span>
+            <span className="github-link"><a href={`https://github.com/benmch`}>Github</a></span> | 
+            <span className="twitter-link"><a href={`https://twitter.com/mchonedev`}>Twitter</a></span>
+          </p>
+        </footer>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
