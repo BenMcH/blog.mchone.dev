@@ -41,7 +41,9 @@ export default function App() {
           <section className="author">
             <h2>About the Author</h2>
             <div className="details">
-              <img src={data.author.avatar} alt={data.author.name} />
+              <span>
+                <img src={data.author.avatar} alt={data.author.name} />
+              </span>
               <p>A tech enthusiast with a love for Software Engineering and DevOps. I have comfort in all levels of the stack and a love of teaching and elevating those around me. I am currently a Software consultant in Des Moines, Iowa. Interested in chatting? Connect with me on <a href={`https://www.linkedin.com/in/${data.author.social.linkedIn}/`}>LinkedIn</a> or reach out on <a href={`https://twitter.com/${data.author.social.twitter}`}>Twitter</a></p>
             </div>
           </section>

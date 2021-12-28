@@ -4,6 +4,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	padding: 8px;
 }
 
 img {
@@ -30,11 +31,15 @@ ul.blog-list {
 	list-style: none;
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	flex-wrap: wrap;
+	gap: 1rem;
+
+	padding: 0;
 } 
 ul.blog-list li {
-	max-width: 450px;
 	display: flex;
+	max-width: 300px;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;

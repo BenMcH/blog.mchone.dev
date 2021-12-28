@@ -50,7 +50,7 @@ export default function Index() {
   const data = useLoaderData<LoaderType>();
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <>
       <h1>Welcome to My Blog</h1>
       <ul className="blog-list">
         {data.blogPosts.slice(0, 10).map(post => (
@@ -76,6 +76,6 @@ export default function Index() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
