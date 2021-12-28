@@ -19,13 +19,14 @@ export async function readFile(path: string): Promise<string> {
 	return await fs.readFile(path, 'utf8')
 };
 
-type Author = {
+export type Author = {
   name: string
   bio: string
   avatar: string
   social: {
     twitter: string
     github: string
+	linkedIn: string
   }	
 }
 

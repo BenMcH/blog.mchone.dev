@@ -13,11 +13,11 @@ export let loader: LoaderFunction = async function() {
 
   let walkPath = './app/routes';
 
+  const author = await getAuthor('ben-mchone');
+
   let addFile = async (file: string) => {
     if (file.endsWith('.md')) {
       let frontmatter = fm<BlogPostAttributes>(await readFile(file));
-
-      const author = await getAuthor(frontmatter.attributes.author);
 
       files.push({
         attributes: frontmatter.attributes,
@@ -53,13 +53,15 @@ export default function Index() {
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to My Blog</h1>
       <ul className="blog-list">
-        {data.blogPosts.map(post => (
+        {data.blogPosts.slice(0, 10).map(post => (
           <li key={post.url}>
-            <img
-              alt={post.attributes.meta.title}
-              src={post.attributes.hero}
-              className="hero"
-            />
+            <Link to={post.url}>
+              <img
+                alt={post.attributes.meta.title}
+                src={post.attributes.hero}
+                className="hero"
+              />
+            </Link>
             <Link to={post.url}>
               {post.attributes.meta.title}
             </Link>

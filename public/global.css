@@ -1,6 +1,9 @@
 body {
 	max-width: 1000px;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 img {
@@ -16,6 +19,11 @@ header {
 	flex-direction: row;
 	gap: 1rem;
 	font-size: 24px;
+}
+
+main {
+	flex: 1;
+	padding: 1rem;
 }
 
 ul.blog-list {
@@ -46,4 +54,14 @@ footer p {
 	display: flex;
 	flex-direction: row;
 	gap: 0.5rem;
+}
+
+section.author > div.details {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+section.author img {
+	max-width: 100px;
 }
