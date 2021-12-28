@@ -52,27 +52,6 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to My Blog</h1>
-      <style dangerouslySetInnerHTML={{__html: `
-        ul.blog-list {
-          list-style: none;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-        } 
-        ul.blog-list li {
-          max-width: 450px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-
-          padding: 1rem 0;
-        } 
-
-        ul.blog-list li a {
-          font-size: 1.5rem;
-        }
-      `}} />
       <ul className="blog-list">
         {data.blogPosts.map(post => (
           <li key={post.url}>

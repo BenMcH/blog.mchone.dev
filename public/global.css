@@ -17,3 +17,23 @@ header {
 	gap: 1rem;
 	font-size: 24px;
 }
+
+ul.blog-list {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+} 
+ul.blog-list li {
+	max-width: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 1rem 0;
+} 
+
+ul.blog-list li a {
+	font-size: 1.5rem;
+}
