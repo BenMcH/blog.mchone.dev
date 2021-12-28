@@ -1,10 +1,13 @@
 FROM node:16.1.0-alpine
 
-ARG REMIX_AUTH
+WORKDIR /app
 
-ADD . .
+ADD package.json package.json
+ADD package-lock.json package-lock.json
 
 RUN npm i
+
+ADD . .
 
 RUN npm run build
 
