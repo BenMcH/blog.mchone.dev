@@ -4,6 +4,10 @@ import type { BlogPostAttributes } from "~/utils/blog-post-types";
 
 import { Link, LoaderFunction, useLoaderData } from 'remix';
 
+export function meta() {
+  return { title: 'Ben McHone\'s Blog' };
+}
+
 export let loader: LoaderFunction = async function() {
   let files: BlogPost[] = [];
 
