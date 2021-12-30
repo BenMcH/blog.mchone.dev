@@ -18,6 +18,8 @@ excerpt: By this point in time, I would hope that most, if not all people readin
 
 <img alt="Hero Image" src={attributes.hero} />
 
+## Introduction
+
 By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one, like Lastpass, Bitwarden. 1password, Dashlane, Keypass, the list could go on. My personal preference at this point in time is [Bitwarden](https://bitwarden.com/).
 
 A few years ago, I started work at a company that shared all passwords via Lastpass so that they could easily be updated, shared, and revoked as needed. It was really a great system, one that I came to love for both the ease of use as well as the added security that it provides. All of a sudden, it was no more difficult to have a 100 character password as it was to have a 15 character password. This idea excited me and I jumped all in, changing every one of my passwords to a secure, randomly generated password that would not easily be cracked through password lists, brute force, or any other common method today. Things stayed like this for quite some time and I would even help friends, family, colleagues, and anyone else that would listen sign up for a password manager, knowing that it can help dramatically improve day to day security. 
