@@ -50,7 +50,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <span>
                 <img src={data.author.avatar} alt={data.author.name} className="w-100" />
               </span>
-              <p>A tech enthusiast with a love for Software Engineering and DevOps. I have comfort in all levels of the stack and a love of teaching and elevating those around me. I am currently a Software consultant in Des Moines, Iowa. Interested in chatting? Connect with me on <a href={`https://www.linkedin.com/in/${data.author.social.linkedIn}/`}>LinkedIn</a> or reach out on <a href={`https://twitter.com/${data.author.social.twitter}`}>Twitter</a></p>
+              <p>
+                A tech enthusiast with a love for Software Engineering and DevOps.
+                I have comfort in all levels of the stack and a love of teaching and
+                elevating those around me. I am currently a Software consultant in Des Moines, Iowa.
+                Interested in chatting? Connect with me on <a href={`https://www.linkedin.com/in/${data.author.social.linkedIn}/`} className="underline underline-offset-1">LinkedIn</a> or reach out on <a href={`https://twitter.com/${data.author.social.twitter}`} className="underline underline-offset-1">Twitter</a></p>
             </div>
           </section>
         </main>
