@@ -7,3 +7,4 @@
 !remix.config.js
 !remix.env.d.ts
 !tsconfig.json
+!tailwind.config.js
