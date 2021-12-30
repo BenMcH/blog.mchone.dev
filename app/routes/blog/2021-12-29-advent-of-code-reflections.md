@@ -1,6 +1,9 @@
 ---
 meta:
   title: Advent of Code 2021 Reflections
+  og:title: Advent of Code 2021 Reflections
+  og:description: My personal ramblings regarding Advent of Code and some lessons learned along the way.
+  og:image: https://blog.mchone.dev/images/advent-2021-hero.jpeg
 headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone

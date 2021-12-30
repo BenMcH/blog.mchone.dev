@@ -1,6 +1,9 @@
 ---
 meta:
   title: States will simplify your code
+  og:title: States will simplify your code
+  og:description: State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
+  og:image: https://blog.mchone.dev/images/wikimedia-turnstile-state-machine.png
 headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone

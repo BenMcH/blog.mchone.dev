@@ -1,6 +1,9 @@
 ---
 meta:
   title: Running Your Own Password Manager
+  og:title: Running Your Own Password Manager
+  og:description: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one.
+  og:image: https://blog.mchone.dev/images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
 headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
