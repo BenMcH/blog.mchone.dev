@@ -8,7 +8,7 @@ headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
 authorName: Ben McHone
-date: '2021-12-28'
+date: '2021-12-29T00:00:00'
 hero: /images/advent-2021-hero.jpeg
 excerpt: My personal ramblings regarding Advent of Code and some lessons learned along the way.
 

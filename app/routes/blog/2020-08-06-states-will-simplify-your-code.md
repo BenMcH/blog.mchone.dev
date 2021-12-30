@@ -8,7 +8,7 @@ headers:
   Cache-Control: max-age=180, s-maxage=600, stale-while-revalidate=600
 author: ben-mchone
 authorName: Ben McHone
-date: '2020-08-31'
+date: '2020-08-31T00:00:00'
 hero: /images/wikimedia-turnstile-state-machine.png
 excerpt: State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
 ---
