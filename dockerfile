@@ -5,7 +5,7 @@ WORKDIR /app
 ADD package.json package.json
 ADD package-lock.json package-lock.json
 
-RUN npm i
+RUN npm ci
 
 ADD . .
 
