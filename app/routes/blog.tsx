@@ -11,7 +11,7 @@ export default function BlogTemplate() {
     }, [doc]);
 
 	return (
-		<article>
+		<article className="prose dark:prose-invert xl:prose-xl">
 			<Outlet />
 			<p>
 				Like this blog post? <a href={`https://twitter.com/intent/tweet?text=Check out this blog post by @mchonedev that I just read! ${link}`}>Share it on twitter!</a>
