@@ -1,10 +1,7 @@
-*
-
-!app
-!public
-!package.json
-!package-lock.json
-!remix.config.js
-!remix.env.d.ts
-!tsconfig.json
-!tailwind.config.js
+/node_modules
+*.log
+.DS_Store
+.env
+/.cache
+/public/build
+/build
