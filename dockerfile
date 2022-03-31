@@ -38,7 +38,6 @@ FROM base
 WORKDIR /blog
 
 COPY --from=production-deps /blog/node_modules /blog/node_modules
-COPY --from=build /blog/node_modules/.prisma /blog/node_modules/.prisma
 
 COPY --from=build /blog/build /blog/build
 COPY --from=build /blog/public /blog/public
