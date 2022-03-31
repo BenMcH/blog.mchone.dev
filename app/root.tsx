@@ -1,6 +1,7 @@
 import {
   Link,
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -10,10 +11,15 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 import { Author, getAuthor } from "./utils/fs.server";
+import tailwind from '~/tailwind.css';
 
 export const meta: MetaFunction = () => {
   return { title: "Ben McHone's Blog" };
 };
+
+export const links: LinksFunction = () => [
+  {rel: "stylesheet", href: tailwind},
+]
 
 export async function loader() {
 	return {
@@ -30,8 +36,6 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        <link href={'/tailwind.css'} rel="stylesheet" />
-        {/* <link href={'/global.css'} rel="stylesheet" /> */}
         <script dangerouslySetInnerHTML={{__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

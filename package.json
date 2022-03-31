@@ -4,8 +4,10 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "remix build",
-    "dev": "cross-env NODE_ENV=development remix dev",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -i ./app/styles/tailwind-starter.css -o ./app/tailwind.css",
+    "dev": "concurrently \"npm run dev:css\" \"cross-env NODE_ENV=development remix dev\"",
+    "dev:css": "tailwindcss -i ./app/styles/tailwind-starter.css -o ./app/tailwind.css --watch",
     "postinstall": "remix setup node",
     "start": "remix-serve build"
   },
@@ -15,8 +17,7 @@
     "front-matter": "^4.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "remix": "^1.1.1",
-    "remix-tailwind": "^0.2.1"
+    "remix": "^1.1.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.1.1",
