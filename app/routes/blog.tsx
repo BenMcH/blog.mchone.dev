@@ -1,5 +1,10 @@
 import {useState, useEffect} from 'react';
-import { Outlet } from "remix";
+import { LinksFunction, Outlet } from "remix";
+import styles from 'highlight.js/styles/base16/solarized-dark.css'
+
+export const links: LinksFunction = () => [
+  {rel: "stylesheet", href: styles},
+]
 
 export default function BlogTemplate() {
     const [link, setLink] = useState('');
