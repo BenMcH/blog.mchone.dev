@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react';
 import { LinksFunction, Outlet } from "remix";
-import styles from 'highlight.js/styles/base16/solarized-dark.css'
+import darkStyles from 'highlight.js/styles/base16/solarized-dark.css'
+import lightStyles from 'highlight.js/styles/base16/solarized-light.css'
 
 export const links: LinksFunction = () => [
-  {rel: "stylesheet", href: styles},
+  {rel: "stylesheet", href: darkStyles, media: '(prefers-color-scheme: dark)'},
+  {rel: "stylesheet", href: lightStyles, media: '(prefers-color-scheme: light)'},
 ]
 
 export default function BlogTemplate() {
