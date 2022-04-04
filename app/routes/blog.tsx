@@ -14,7 +14,7 @@ export default function BlogTemplate() {
     const doc = typeof document === 'undefined' ? null : document || null;
 
     useEffect(() => {
-        setLink(doc ? doc.location.toString() : '');
+        setLink(doc?.location.toString() ?? '');
     }, [doc]);
 
 	return (

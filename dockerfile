@@ -41,6 +41,7 @@ COPY --from=production-deps /blog/node_modules /blog/node_modules
 
 COPY --from=build /blog/build /blog/build
 COPY --from=build /blog/public /blog/public
-ADD . .
+ADD package.json /blog/
+ADD package-lock.json /blog/
 
 CMD ["npm", "start"]

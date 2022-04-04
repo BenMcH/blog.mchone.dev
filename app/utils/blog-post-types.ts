@@ -1,6 +1,9 @@
 export type BlogPostAttributes = {
 	meta: {
-		title: string
+		[key: string]: string
+	}
+	headers: {
+		[key: string]: string
 	}
 	author: string
 	authorName: string

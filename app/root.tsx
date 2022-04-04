@@ -10,8 +10,9 @@ import {
   useLoaderData
 } from "remix";
 import type { MetaFunction } from "remix";
-import { Author, getAuthor } from "./utils/fs.server";
 import tailwind from '~/tailwind.css';
+
+import author from '~/authors/ben-mchone.json';
 
 export const meta: MetaFunction = () => {
   return { title: "Ben McHone's Blog" };
@@ -23,12 +24,12 @@ export const links: LinksFunction = () => [
 
 export async function loader() {
 	return {
-		author: await getAuthor('ben-mchone')
+		author
 	}
 }
 
 export default function App() {
-  const data = useLoaderData<{ author: Author }>();
+  const data = useLoaderData<{ author: typeof author }>();
   return (
     <html lang="en">
       <head>

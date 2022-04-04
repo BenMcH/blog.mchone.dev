@@ -1,5 +1,6 @@
 import { Link, LoaderFunction, useLoaderData } from 'remix';
-import { BlogPost, getPosts } from '~/utils/blog.server';
+import { BlogPost } from '~/utils/blog-cache.server';
+import { getPosts } from '~/utils/blog.server';
 
 export function meta() {
   return { title: 'Ben McHone\'s Blog' };
