@@ -10,7 +10,7 @@ author: ben-mchone
 authorName: Ben McHone
 date: '2022-04-11T00:00:00'
 hero: '/images/1200x627 - Darksvg.svg'
-excerpt: TODO
+excerpt: In this article, we will discuss how to migrate from the Remix Indie Stack to the Remix Blues Stack
 ---
 
 # {attributes.meta.title}
