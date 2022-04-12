@@ -13,10 +13,10 @@ hero: /images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
 excerpt: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
 ---
 
-# {attributes.meta.title}
-{attributes.authorName} - {new Date(attributes.date).toLocaleDateString()}
+# {frontmatter.meta.title}
+{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
 
-<img alt="Hero Image" src={attributes.hero} />
+<img alt="Hero Image" src={frontmatter.hero} />
 
 ## Introduction
 

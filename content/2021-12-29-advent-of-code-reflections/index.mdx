@@ -13,10 +13,10 @@ hero: /images/advent-2021-hero.jpeg
 excerpt: My personal ramblings regarding Advent of Code and some lessons learned along the way.
 ---
 
-# {attributes.meta.title}
-{attributes.authorName} - {new Date(attributes.date).toLocaleDateString()}
+# {frontmatter.meta.title}
+{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
 
-<img alt="Hero Image" src={attributes.hero} />
+<img alt="Hero Image" src={frontmatter.hero} />
 
 ## Introduction
 

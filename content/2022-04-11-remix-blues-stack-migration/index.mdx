@@ -13,10 +13,10 @@ hero: '/images/1200x627 - Darksvg.svg'
 excerpt: In this article, we will discuss how to migrate from the Remix Indie Stack to the Remix Blues Stack
 ---
 
-# {attributes.meta.title}
-{attributes.authorName} - {new Date(attributes.date).toLocaleDateString()}
+# {frontmatter.meta.title}
+{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
 
-<img src={attributes.hero} alt="Remix Logo" />
+<img src={frontmatter.hero} alt="Remix Logo" />
 
 ## Remix Stacks
 

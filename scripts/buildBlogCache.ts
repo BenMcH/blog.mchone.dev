@@ -27,18 +27,18 @@ async function walk(path: string, callback: (path: string, stat: any) => Promise
 };
 
 async function getPosts() {
-	let walkPath = './app/routes';
+	let walkPath = './content';
 
 	let blogPosts: Array<BlogPost> = [];
 
 	let addFile = async (file: string) => {
-		if (file.endsWith('.md')) {
+		if (file.endsWith('index.mdx')) {
 			let frontmatter = fm<BlogPostAttributes>(await fs.readFile(file, 'utf-8'));
 
 			blogPosts.push({
 				attributes: frontmatter.attributes,
 				body: frontmatter.attributes.excerpt.substring(0, 100) + '...',
-				url: file.substring(walkPath.length + 1, file.length - 3),
+				url: `blog/${file.substring(walkPath.length + 1, file.length - '/index.mdx'.length)}`,
 				authorName: author.name
 			});
 		}
