@@ -10,14 +10,21 @@ module.exports = {
   devServerPort: 8002,
   ignoredRouteFiles: [".*"],
   mdx: async (filename) => {
-    const [rehypeHighlight, remarkToc] = await Promise.all([
+    const [rehypeHighlight, remarkToc, dockerfile] = await Promise.all([
       import("rehype-highlight").then((mod) => mod.default),
       import("remark-toc").then((mod) => mod.default),
+      import('highlight.js/lib/languages/dockerfile').then((mod) => mod.default),
     ]);
 
     return {
       remarkPlugins: [remarkToc],
-      rehypePlugins: [rehypeHighlight],
+      rehypePlugins: [(options = {}) => rehypeHighlight({
+        ...options,
+        languages: {
+          ...options.languages,
+          dockerfile,
+        }
+      })],
     };
   }
 };
