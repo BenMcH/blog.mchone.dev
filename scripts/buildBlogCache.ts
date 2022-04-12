@@ -48,25 +48,13 @@ async function getPosts() {
 
 	blogPosts = blogPosts.sort((a, b) => b.url.localeCompare(a.url))
 
-	await fs.writeFile('./app/utils/blog-cache.server.ts', `
-import { BlogPostAttributes } from "~/utils/blog-post-types"
-
-export type BlogPost = {
-	attributes: BlogPostAttributes
-	body: string
-	url: string
-	authorName: string
-}
-
-export const blogPostCache: Array<BlogPost> = ${JSON.stringify(blogPosts)}
-
-	`);
+	await fs.writeFile('./content/blog-cache.json', JSON.stringify(blogPosts));
 }
 
 getPosts();
 
 if (process.argv.at(-1) === 'watch') {
-	watch('./app/routes/blog/', (eventType, filename) => {
+	watch('./content', (eventType, filename) => {
 		if (filename.endsWith('.md')) {
 			getPosts();
 		}

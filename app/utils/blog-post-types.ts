@@ -1,3 +1,11 @@
+
+export type BlogPost = {
+	attributes: BlogPostAttributes
+	body: string
+	url: string
+	authorName: string
+}
+
 export type BlogPostAttributes = {
 	meta: {
 		[key: string]: string

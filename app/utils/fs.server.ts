@@ -3,6 +3,12 @@ import { GitHubFile } from './mdx.server';
 
 const contentPath = 'content'
 
+export const getLocalFile = async (path: string): Promise<string> => {
+	const data = await fs.readFile(`${contentPath}/${path}`, 'utf-8');
+
+	return data.toString();
+};
+
 export const getLocalContent = async (path: string): Promise<Array<GitHubFile>> => {
 	const results = await fs.readdir(`${contentPath}/${path}`);
 
