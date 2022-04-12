@@ -1,5 +1,5 @@
-import { Link, LoaderFunction, useLoaderData } from 'remix';
-import { BlogPost } from '~/utils/blog-cache.server';
+import { json, Link, LoaderFunction, useLoaderData } from 'remix';
+import { BlogPost } from '~/utils/blog-post-types';
 import { getPosts } from '~/utils/blog.server';
 
 export function meta() {
@@ -7,9 +7,9 @@ export function meta() {
 }
 
 export let loader: LoaderFunction = async function() {
-  return new Response(JSON.stringify({
-    blogPosts: await getPosts()
-  }), {
+  return json({
+    blogPosts: await getPosts(),
+  }, {
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'public, max-age=180, s-maxage=3600'

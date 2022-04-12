@@ -1,4 +1,4 @@
-import { json, LoaderFunction, MetaFunction, useLoaderData } from "remix";
+import { HeadersFunction, json, LoaderFunction, MetaFunction, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
 import { MDXPage } from "~/components/MdxComponent";
 import { BlogPostAttributes } from "~/utils/blog-post-types";
@@ -24,7 +24,17 @@ export const loader: LoaderFunction = async ({params}) => {
 
 	const post = await compileMdx(postTitle, files);
 
-	return json({post})
+	return json({post}, {
+		headers: {
+			'Cache-Control': 'public, max-age=180, s-maxage=3600'
+		}
+	})
+}
+
+export const headers: HeadersFunction = ({loaderHeaders}) => {
+	return {
+		'Cache-Control': loaderHeaders.get('Cache-Control')!
+	}
 }
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
