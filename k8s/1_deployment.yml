@@ -22,3 +22,9 @@ spec:
         command: ["npm"]
         args:
           - start
+        env: 
+          - name: BOT_GITHUB_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: blog-secrets
+                key: BOT_GITHUB_TOKEN
