@@ -2,6 +2,7 @@ import { HeadersFunction, json, LoaderFunction, MetaFunction, useLoaderData } fr
 import invariant from "tiny-invariant";
 import { MDXPage } from "~/components/MdxComponent";
 import { BlogPostAttributes } from "~/utils/blog-post-types";
+import { get } from "~/utils/cache.server";
 import { getLocalContent } from "~/utils/fs.server";
 import { downloadMdxFileOrDirectory } from "~/utils/github.server";
 import { compileMdx } from "~/utils/mdx.server";
@@ -18,11 +19,21 @@ export const loader: LoaderFunction = async ({params}) => {
 
 	invariant(postTitle, "BlogPost: postTitle is required");
 
-	const files = process.env.NODE_ENV === 'production' ?
-	(await downloadMdxFileOrDirectory(postTitle)).files
-	: await getLocalContent(`${postTitle}`);
+	const getPost = async () => {
+		if (process.env.NODE_ENV === 'production') {
+			return get(`blog/${postTitle}`, async () => {
+				const files = await downloadMdxFileOrDirectory(postTitle).then((post) => post.files);
 
-	const post = await compileMdx(postTitle, files);
+				return compileMdx(postTitle, files);
+			});
+		} 
+
+		const files = await getLocalContent(`${postTitle}`);
+
+		return compileMdx(postTitle, files);
+	}
+
+	let post = await getPost();
 
 	return json({post}, {
 		headers: {
