@@ -1,5 +1,4 @@
-import {useState, useEffect} from 'react';
-import { json, LinksFunction, LoaderFunction, Outlet, useLoaderData } from "remix";
+import { ErrorBoundaryComponent, json, LinksFunction, LoaderFunction, Outlet, useLoaderData, Link } from "remix";
 import darkStyles from 'highlight.js/styles/base16/solarized-dark.css'
 import lightStyles from 'highlight.js/styles/base16/solarized-light.css'
 
@@ -25,4 +24,17 @@ export default function BlogPost() {
 			</p>
 		</article>
 	)
+}
+
+export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
+	if (error.message.includes('Not found')) {
+		return (
+			<>
+				<h1>Blog post not found :(</h1>
+				<Link to="/" className="underline underline-offset-2 text-2xl">Go home</Link>
+			</>
+		);
+	}
+
+	return <h1>Unexpected error</h1>
 }

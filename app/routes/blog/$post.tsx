@@ -35,6 +35,8 @@ export const loader: LoaderFunction = async ({params}) => {
 
 	let post = await getPost();
 
+	invariant(post, "Not found");
+
 	return json({post}, {
 		headers: {
 			'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
@@ -49,6 +51,10 @@ export const headers: HeadersFunction = ({loaderHeaders}) => {
 }
 
 export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
+	if (!data || !data.post) {
+		return {};
+	}
+
 	return {
 		'og:title': data.post.frontmatter.meta.title,
 
