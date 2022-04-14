@@ -1,4 +1,4 @@
-import { json, Link, LoaderFunction, useLoaderData } from 'remix';
+import { ErrorBoundaryComponent, json, Link, LoaderFunction, useLoaderData } from 'remix';
 import { BlogPost } from '~/utils/blog-post-types';
 import { getPosts } from '~/utils/blog.server';
 
@@ -58,4 +58,12 @@ export default function Index() {
       </ul>
     </>
   );
+}
+
+export const ErrorBoundary: ErrorBoundaryComponent = ({error}) => {
+  return (
+    <main>
+      <h1>Unable to fetch list of blog posts. Please check back later</h1>
+    </main>
+  )
 }
