@@ -7,12 +7,15 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData
+  useLoaderData,
+  useLocation
 } from "remix";
 import type { MetaFunction } from "remix";
 import tailwind from '~/tailwind.css';
+import * as gtag from '~/utils/gtag.client';
 
 import author from '~/authors/ben-mchone.json';
+import { useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return { title: "Ben McHone's Blog" };
@@ -29,6 +32,13 @@ export async function loader() {
 }
 
 export default function App() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    gtag.pageview(location.pathname);
+  }, [location]);
+
   const data = useLoaderData<{ author: typeof author }>();
   return (
     <html lang="en">
@@ -44,6 +54,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W3KRMPF');`}} />
       </head>
       <body className="flex flex-col">
+        {process.env.NODE_ENV === "development" ? null : (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+            />
+            <script
+              async
+              id="gtag-init"
+              dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gtag.GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+              }}
+            />
+          </>
+        )}
         <header className="flex gap-5 text-3xl">
           <Link to="/">Ben McHone's Blog</Link>
         </header>
