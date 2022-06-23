@@ -55,11 +55,16 @@ export const meta: MetaFunction = ({data}: {data: LoaderData}) => {
 		return {};
 	}
 
+	console.log({
+		frontmatter: data.post.frontmatter,
+		'og:image': `https://blog.mchone.dev${data.post.frontmatter.hero}`,
+	})
+
 	return {
 		'og:title': data.post.frontmatter.meta.title,
 
 		'og:description': data.post.frontmatter.meta['description'],
-		'og:image': `https://blog.mchone.dev${data.post.frontmatter.meta['hero']}`,
+		'og:image': `https://blog.mchone.dev${data.post.frontmatter.hero}`,
 		...data.post.frontmatter.meta
 	}
 }
