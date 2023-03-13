@@ -6,5 +6,7 @@ services:
       args: 
         REMIX_AUTH: ${REMIX_AUTH}
     image: localhost:5000/blog:latest
+    env_file:
+    - .env
     ports:
       - 3000:3000
