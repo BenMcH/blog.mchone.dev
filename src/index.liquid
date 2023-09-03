@@ -1,0 +1,37 @@
+---
+layout: layout.liquid
+---
+
+<p class="mt-4">
+  From Ruby to Javascript, REST to GraphQL, Kubernetes to lambda functions,
+  I love all things tech. This blog is my collection of thoughts surrounding tech,
+    	life, and other hobbies. This blog is built upon<a href="https://remix.run">Remix</a>
+  and
+  other web fundamentals.
+</p>
+
+<ul class="flex md:flex-row md:flex-wrap list-none gap-5 mt-4 flex-col flex-nowrap items-stretch">
+  {% assign posts = collections.post reversed | slice: 0, 10 %}
+  {% for post in posts %}
+    <li class="md:max-w-sm p-5 border-gray-400 border-2 rounded-md flex-1 flex justify-between flex-col gap-5">
+      <a href="{{post.url}}">
+        <img
+          alt="{{post.data.title}}"
+          src="{{post.data.hero}}"
+          class="md:max-w-xs max-w-full" />
+      </a>
+
+      <a href="{{post.url}}">
+        {{ post.data.title }}
+      </a>
+
+      <blockquote class="border-l-2 pl-5">
+        {{ post.data.excerpt }}
+      </blockquote>
+
+      <p class="text-sm">
+        {{ post.date | postDate }}
+      </p>
+    </li>
+  {% endfor %}
+</ul>

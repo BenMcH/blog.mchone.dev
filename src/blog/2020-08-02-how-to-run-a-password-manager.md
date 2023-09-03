@@ -1,18 +1,12 @@
 ---
-meta:
-  title: Running Your Own Password Manager
-  description: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
-author: ben-mchone
+title: Running Your Own Password Manager
+description: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
 authorName: Ben McHone
 date: '2020-08-02T00:00:00'
 hero: /images/chris-panas-0Yiy0XajJHQ-unsplash.jpg
 excerpt: By this point in time, I would hope that most, if not all people reading this blog post are aware of the benefits that password managers have to offer. You may even be using one...
+tags: post
 ---
-
-# {frontmatter.meta.title}
-{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
-
-<img alt="Hero Image" src={frontmatter.hero} />
 
 ## Introduction
 

@@ -1,18 +1,13 @@
 ---
-meta:
-  title: Remix Indie to Blues Stack Migration
-  description: What does it take to migrate from Remix Indie to Blues Stack? This migration guide will help you understand the steps involved in migrating your databse to Postgres and deploy it to Fly.io
+title: Remix Indie to Blues Stack Migration
+description: What does it take to migrate from Remix Indie to Blues Stack? This migration guide will help you understand the steps involved in migrating your databse to Postgres and deploy it to Fly.io
 author: ben-mchone
 authorName: Ben McHone
 date: '2022-04-11T00:00:00'
 hero: '/images/1200x627 - Darksvg.svg'
 excerpt: What does it take to migrate from Remix Indie to Blues Stack? This migration guide will help you understand the steps involved in migrating your databse to Postgres and deploy it to Fly.io
+tags: post
 ---
-
-# {frontmatter.meta.title}
-{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
-
-<img src={frontmatter.hero} alt="Remix Logo" />
 
 ## Remix Stacks
 

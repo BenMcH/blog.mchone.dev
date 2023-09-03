@@ -1,17 +1,15 @@
 ---
 meta:
-  title: States will simplify your code
-  description: State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
+    desctription: foo
+title: States will simplify your code
+description: State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
 author: ben-mchone
 authorName: Ben McHone
 date: '2020-08-31T00:00:00'
 hero: /images/wikimedia-turnstile-state-machine.png
 excerpt: State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.
+tags: post
 ---
-# {frontmatter.meta.title}
-{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
-
-<img alt="Hero Image" src={frontmatter.hero} />
 
 ## What are state machines?
 State machines help us manage our application state and, ultimately, reduce the number of bugs our users encounter.

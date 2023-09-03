@@ -7,3 +7,6 @@ app/tailwind.css
 
 
 .env
+_site
+content
+src/public/tailwind.css

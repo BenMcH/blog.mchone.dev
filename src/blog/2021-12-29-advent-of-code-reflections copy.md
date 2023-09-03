@@ -1,18 +1,13 @@
 ---
-meta:
-  title: Advent of Code 2021 Reflections
-  description: My personal ramblings regarding Advent of Code and some lessons learned along the way.
+title: Advent of Code 2021 Reflections
+description: My personal ramblings regarding Advent of Code and some lessons learned along the way.
 author: ben-mchone
 authorName: Ben McHone
 date: '2021-12-29T00:00:00'
 hero: /images/advent-2021-hero.jpeg
 excerpt: My personal ramblings regarding Advent of Code and some lessons learned along the way.
+tags: post
 ---
-
-# {frontmatter.meta.title}
-{frontmatter.authorName} - {new Date(frontmatter.date).toLocaleDateString()}
-
-<img alt="Hero Image" src={frontmatter.hero} />
 
 ## Introduction
 

@@ -1,0 +1,79 @@
+---
+title: Ben McHone's Blog
+meta: {}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:title" content="{{ title | escape }}" />
+    <meta property="og:url" content="https://blog.mchone.dev{{ page.url| escape }}" />
+    <meta property="og:description" content="{{ description | escape }}" />
+    <meta property="og:image" content="{{ hero }}" />
+    <meta property="og:type" content="article" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/tailwind.css" />
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer'
+            ? '&l=' + l
+            : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-W3KRMPF');
+    </script>
+  </head>
+  <body class="flex flex-col">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=undefined"></script>
+    <script async="" id="gtag-init">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'undefined', {
+        page_path: window.location.pathname,
+      });
+    </script>
+    <header class="flex gap-5 text-3xl">
+      <a href="/">Ben McHone&#x27;s Blog</a>
+    </header>
+    <main class="flex-1">
+      {{ content }}
+      <section class="flex flex-col gap-1 mt-5">
+        <h2>About the Author</h2>
+        <div class="flex gap-5">
+          <span>
+            <img
+              src="/images/benmch.jpeg"
+              alt="Ben McHone"
+              class="w-100" />
+          </span>
+          <p>A tech enthusiast with a love for Software Engineering and DevOps. I have comfort in all levels of the stack and a love of teaching and elevating those around me. I am currently a Software consultant in Des Moines, Iowa. Interested in chatting? Connect with me on
+            <a href="https://www.linkedin.com/in/benjamin-mchone-4b983abb/" class="underline underline-offset-1">LinkedIn</a>
+            or reach out on
+            <a href="https://twitter.com/mchonedev" class="underline underline-offset-1">Twitter</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="mt-5">
+      <p class="flex gap-3">
+        <span class="flex-1">© 2021
+          <!-- -->
+          Ben McHone
+        </span>
+        <a href="https://github.com/benmch">Github</a>
+        |
+        <a href="https://twitter.com/mchonedev">Twitter</a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+layout: layout.liquid
+authorName: Ben McHone
+---
+
+<h1>{{ title }}</h1>
+{{ authorName }} - {{ date | postDate }}
+
+<img alt="Hero Image" src="{{hero}}" />
+
+<article class="prose dark:prose-invert xl:prose-xl">
+  {{ content }}
+</article>
+
+<p>
+  Like this blog post?
+  <a href="https://twitter.com/intent/tweet?text=%22Check out this blog post by @mchonedev that I just read! https://blog.mchone.dev{{page.url}}%22">Share it on twitter!</a>
+</p>
