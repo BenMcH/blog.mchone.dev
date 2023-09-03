@@ -15,7 +15,6 @@
     "@11ty/eleventy": "^2.0.1",
     "@tailwindcss/typography": "^0.5.9",
     "concurrently": "^8.2.1",
-    "eleventy-plugin-metagen": "^1.7.11",
     "tailwindcss": "^3.3.3"
   }
 }

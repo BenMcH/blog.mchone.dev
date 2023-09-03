@@ -1,8 +1,4 @@
-const metagen = require('eleventy-plugin-metagen');
-
 module.exports = eleventyConfig => {
-	eleventyConfig.addPlugin(metagen);
-
 	eleventyConfig.addPassthroughCopy({ './src/public': "/" });
 
 	eleventyConfig.addFilter("postDate", (dateObj) => {
