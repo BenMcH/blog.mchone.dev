@@ -50,4 +50,4 @@ jobs:
         uses: actions/deploy-pages@v2
       - name: Deployment Notification
         run: | 
-          curl -d "blog.mchone.dev deployment succeeded! 🎉🚀" https://ntfy.mchone.dev/deployments
+          curl -X POST -d "blog.mchone.dev deployment succeeded! 🎉🚀" https://ntfy.mchone.dev/deployments
