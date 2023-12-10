@@ -1,5 +1,7 @@
 ---
 layout: layout.liquid
+eleventyImport:
+  collections: ["post"]
 ---
 
 <p class="mt-4">
@@ -11,8 +13,8 @@ layout: layout.liquid
 </p>
 
 <ul class="flex md:flex-row md:flex-wrap list-none gap-5 mt-4 flex-col flex-nowrap items-stretch">
-  {% assign posts = collections.post reversed | slice: 0, 10 %}
-  {% for post in posts %}
+  {% assign posts = collections.post | reverse | slice: 0, 10  %}
+  {%- for post in posts -%}
     <li class="md:max-w-sm p-5 border-gray-400 border-2 rounded-md flex-1 flex justify-between flex-col gap-5">
       <a href="{{post.url}}">
         <img
