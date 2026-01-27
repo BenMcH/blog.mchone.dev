@@ -4,36 +4,44 @@ eleventyImport:
   collections: ["post"]
 ---
 
-<p class="mt-4">
-  From Ruby to Javascript, REST to GraphQL, Kubernetes to lambda functions,
-  I love all things tech. This blog is my collection of thoughts surrounding tech,
-    	life, and other hobbies. This blog is built upon<a href="https://remix.run">Remix</a>
-  and
-  other web fundamentals.
-</p>
+<div class="max-w-5xl">
+  <p class="mt-8 mb-12 text-lg leading-relaxed text-gray-700">
+    From Ruby to Javascript, REST to GraphQL, Kubernetes to lambda functions,
+    I love all things tech. This blog is my collection of thoughts surrounding tech,
+    life, and other hobbies.
+  </p>
 
-<ul class="flex md:flex-row md:flex-wrap list-none gap-5 mt-4 flex-col flex-nowrap items-stretch">
-  {% assign posts = collections.post | reverse | slice: 0, 10  %}
-  {%- for post in posts -%}
-    <li class="md:max-w-sm p-5 border-gray-400 border-2 rounded-md flex-1 flex justify-between flex-col gap-5">
-      <a href="{{post.url}}">
-        <img
-          alt="{{post.data.title}}"
-          src="{{post.data.hero}}"
-          class="md:max-w-xs max-w-full" />
-      </a>
-
-      <a href="{{post.url}}">
-        {{ post.data.title }}
-      </a>
-
-      <blockquote class="border-l-2 pl-5">
-        {{ post.data.excerpt }}
-      </blockquote>
-
-      <p class="text-sm">
-        {{ post.date | postDate }}
-      </p>
-    </li>
-  {% endfor %}
-</ul>
+  <div class="space-y-12">
+    {% assign posts = collections.post | reverse | slice: 0, 10  %}
+    {%- for post in posts -%}
+      <article class="group">
+        <a href="{{post.url}}" class="block">
+          <div class="flex items-start gap-6">
+            {%- if post.data.hero -%}
+              <div class="hidden sm:block flex-shrink-0 w-20 h-20 overflow-hidden rounded opacity-60 group-hover:opacity-100 transition-opacity">
+                <img
+                  alt=""
+                  src="{{post.data.hero}}"
+                  class="w-full h-full object-cover" />
+              </div>
+            {%- endif -%}
+            
+            <div class="flex-1 min-w-0">
+              <time class="text-sm font-mono text-gray-500 tracking-tight">
+                {{ post.date | postDate }}
+              </time>
+              
+              <h2 class="mt-2 text-2xl font-bold text-gray-950 group-hover:text-blue-600 transition-colors">
+                {{ post.data.title }}
+              </h2>
+              
+              <p class="mt-3 text-gray-700 leading-relaxed">
+                {{ post.data.excerpt }}
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</div>

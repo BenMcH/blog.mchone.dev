@@ -3,16 +3,28 @@ layout: layout.liquid
 authorName: Ben McHone
 ---
 
-<h1>{{ title }}</h1>
-{{ authorName }} - {{ date | postDate }}
+<article class="max-w-4xl mx-auto space-y-8">
+  <header class="bg-white rounded-lg p-8 shadow-sm">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">{{ title }}</h1>
+    <div class="mt-4 flex items-center gap-3 text-gray-600">
+      <span class="font-medium text-gray-900">{{ authorName }}</span>
+      <span>·</span>
+      <time class="font-mono text-sm">{{ date | postDate }}</time>
+    </div>
+  </header>
 
-<img alt="Hero Image" src="{{hero}}" />
+  {%- if hero -%}
+    <img alt="Hero Image" src="{{hero}}" class="w-full rounded-lg shadow-sm" />
+  {%- endif -%}
 
-<article class="prose dark:prose-invert xl:prose-xl">
-  {{ content }}
+  <div class="prose prose-lg max-w-none bg-white rounded-lg p-8 shadow-sm">
+    {{ content }}
+  </div>
+
+  <div class="bg-white rounded-lg p-8 shadow-sm">
+    <p class="text-gray-700">
+      Like this blog post?
+      <a href="https://twitter.com/intent/tweet?text=%22Check out this blog post by @mchonedev that I just read! https://blog.mchone.dev{{page.url}}%22" class="text-blue-600 hover:text-blue-700 font-medium">Share it on X!</a>
+    </p>
+  </div>
 </article>
-
-<p>
-  Like this blog post?
-  <a href="https://twitter.com/intent/tweet?text=%22Check out this blog post by @mchonedev that I just read! https://blog.mchone.dev{{page.url}}%22">Share it on twitter!</a>
-</p>

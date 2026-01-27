@@ -25,39 +25,49 @@ meta: {}
     <!-- End Google Tag Manager -->
 
   </head>
-  <body class="flex flex-col">
-    <header class="flex gap-5 text-3xl">
-      <a href="/">Ben McHone&#x27;s Blog</a>
+  <body class="flex flex-col min-h-screen">
+    <header class="border-b border-gray-200 bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-8">
+        <a href="/" class="inline-block group">
+          <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Ben McHone</h1>
+          <p class="text-sm font-mono text-gray-500 mt-1 group-hover:text-blue-600 transition-colors">Software Engineer & Tech Enthusiast</p>
+        </a>
+      </div>
     </header>
-    <main class="flex-1">
+    <main class="flex-1 max-w-6xl mx-auto px-6 py-12 w-full bg-gray-50">
       {{ content }}
-      <section class="flex flex-col gap-1 mt-5">
-        <h2>About the Author</h2>
-        <div class="flex gap-5">
-          <span>
+      <section class="mt-16 pt-12 border-t border-gray-200">
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">About the Author</h2>
+          <div class="flex gap-6 items-start">
             <img
               src="/images/benmch.jpeg"
               alt="Ben McHone"
-              class="w-100" />
-          </span>
-          <p>A tech enthusiast with a love for Software Engineering and DevOps. I have comfort in all levels of the stack and a love of teaching and elevating those around me. I am currently a Software consultant in Des Moines, Iowa. Interested in chatting? Connect with me on
-            <a href="https://www.linkedin.com/in/benjamin-mchone-4b983abb/" class="underline underline-offset-1">LinkedIn</a>
-            or reach out on
-            <a href="https://twitter.com/mchonedev" class="underline underline-offset-1">Twitter</a>
-          </p>
+              class="w-24 h-24 rounded-full object-cover flex-shrink-0" />
+            <div class="flex-1">
+              <p class="text-gray-700 leading-relaxed">A tech enthusiast with a love for Software Engineering and DevOps. I have comfort in all levels of the stack and a love of teaching and elevating those around me. I am currently a Software consultant in Des Moines, Iowa.</p>
+              <p class="mt-3 text-sm text-gray-500">
+                Interested in chatting? Connect with me on
+                <a href="https://www.linkedin.com/in/benjamin-mchone-4b983abb/" class="text-blue-600 hover:text-blue-700 font-medium">LinkedIn</a>
+                or reach out on
+                <a href="https://x.com/mchonedev" class="text-blue-600 hover:text-blue-700 font-medium">X</a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-    <footer class="mt-5">
-      <p class="flex gap-3">
-        <span class="flex-1">© 2021
-          <!-- -->
-          Ben McHone
-        </span>
-        <a href="https://github.com/benmch">Github</a>
-        |
-        <a href="https://twitter.com/mchonedev">Twitter</a>
-      </p>
+    <footer class="border-t border-gray-900 bg-white mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+          <span>© 2021–2026 Ben McHone</span>
+          <div class="flex gap-6">
+            <a href="https://github.com/benmch" class="hover:text-gray-900 transition-colors">Github</a>
+            <a href="https://www.linkedin.com/in/benjamin-mchone-4b983abb/" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+            <a href="https://x.com/mchonedev" class="hover:text-gray-900 transition-colors">X</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
