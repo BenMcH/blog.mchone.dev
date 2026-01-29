@@ -14,7 +14,7 @@ meta: {}
     <meta property="og:image" content="{{ hero }}" />
     <meta property="og:type" content="article" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="stylesheet" href="/tailwind.css?v={{ version }}" />
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -41,7 +41,7 @@ meta: {}
           <h2 class="text-lg font-semibold text-gray-900 my-4 text-center sm:text-left">About the Author</h2>
           <div class="flex gap-6 items-center sm:items-start flex-col sm:flex-row">
             <img
-              src="/images/benmch.jpeg"
+              src="/images/benmch.jpeg?v={{ version }}"
               alt="Ben McHone"
               class="w-24 h-24 rounded-full object-cover flex-shrink-0" />
             <div class="flex-1">
