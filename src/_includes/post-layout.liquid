@@ -29,11 +29,11 @@ authorName: Ben McHone
   </div>
 
   <!-- Post Feedback Form -->
-  <div class="bg-white rounded-lg p-8 shadow-sm">
+  <div class="bg-white rounded-lg p-8 shadow-sm" id="feedback-container">
     <h3 class="text-xl font-semibold text-gray-900 mb-4">Have feedback on this post?</h3>
     <p class="text-gray-600 mb-6">Let me know what you think! I'd love to hear your thoughts, questions, or suggestions.</p>
     
-    <form action="https://formspree.io/f/mzdgdrzw" method="POST" class="space-y-4">
+    <form id="feedback-form" action="https://formspree.io/f/mzdgdrzw" method="POST" class="space-y-4">
       <input type="hidden" name="post_url" value="https://blog.mchone.dev{{page.url}}" />
       <input type="hidden" name="post_title" value="{{ title }}" />
       
@@ -46,7 +46,7 @@ authorName: Ben McHone
           id="feedback-name"
           name="name"
           required
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
           placeholder="Your name"
         />
       </div>
@@ -60,7 +60,7 @@ authorName: Ben McHone
           id="feedback-email"
           name="email"
           required
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
           placeholder="your@email.com"
         />
       </div>
@@ -74,7 +74,7 @@ authorName: Ben McHone
           name="message"
           required
           rows="5"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-y"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-y text-gray-900 bg-white"
           placeholder="Your feedback, thoughts, or questions..."
         ></textarea>
       </div>
@@ -82,11 +82,49 @@ authorName: Ben McHone
       <div>
         <button
           type="submit"
-          class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Send Feedback
         </button>
       </div>
     </form>
   </div>
+
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const button = form.querySelector('button[type="submit"]');
+      const container = document.getElementById('feedback-container');
+      
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          container.innerHTML = `
+            <div class="text-center py-8">
+              <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h3 class="text-2xl font-semibold text-gray-900 mb-2">Thank you for your feedback!</h3>
+              <p class="text-gray-600">Your message has been sent successfully. I appreciate you taking the time to share your thoughts!</p>
+            </div>
+          `;
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('Oops! There was a problem submitting your feedback. Please try again.');
+        button.disabled = false;
+        button.textContent = 'Send Feedback';
+      }
+    });
+  </script>
 </article>
